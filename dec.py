@@ -2,11 +2,8 @@
 
 def decorator(test_func):
 	def wrapper():
-		try:
-			test_func()
-		except Exception:
-			pass	
-		print 'decorator is working'    	    
+		print 'decorator is working' 
+		test_func()   	    
 	return wrapper
 
 @decorator
@@ -14,4 +11,8 @@ def test_func():
 	print 'hello world'
 	raise Exception
 
-test_func()
+try:
+	test_func()
+except Exception:
+	pass
+
