@@ -1,12 +1,17 @@
+#Testing how decorator working
 
 def decorator(test_func):
-    def wrapper():
-        test_func()
-        print 'decorator is working'
-    return wrapper
+	def wrapper():
+		try:
+			test_func()
+		except Exception:
+			pass	
+		print 'decorator is working'    	    
+	return wrapper
 
 @decorator
 def test_func():
-    print 'hello world'
-    
+	print 'hello world'
+	raise Exception
+
 test_func()
