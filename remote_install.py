@@ -4,7 +4,7 @@ from optparse import OptionParser
 import re
 import sys
 
-PACKAGE = 'isc-dhcp-server'
+PACKAGE = 'apache2'
 
 usage = "How to use: %prog [options] HOST_IP USERNAME PASSWORD PORT"
 # creating OptionParser instance with usage parameter
