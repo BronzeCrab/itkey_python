@@ -1,12 +1,15 @@
-import paramiko 
+import paramiko
+import subprocess 
 import logging
 from optparse import OptionParser
 import re
 import sys
 
+# what package to install
 PACKAGE = 'apache2'
-
-usage = "How to use: %prog [options] HOST_IP USERNAME PASSWORD PORT"
+# creating string that will describe options
+usage = "How to use: %prog [options] HOST_IP USERNAME PASSWORD PORT\n If you want \
+to install on remote via ssh or\n %prog [options] \n if you want to install locally"
 # creating OptionParser instance with usage parameter
 parser = OptionParser(usage)
 # adding options to parser instance
@@ -18,8 +21,11 @@ parser.add_option("-q", "--quiet",
 # calling parse_args() method
 (options, args) = parser.parse_args()
 
-# checking number of arguments
-if len(args) not in (3,4):
+# checking number of arguments, if len(args) == 0 then install locally otherwise go on
+if len(args) == 0:
+	subprocess.check_output(["sudo", "touch", "Hello World"])
+	sys.exit()
+elif len(args) not in (3,4):
 	parser.error("incorrect number of arguments") 
 
 # checking arguments
