@@ -6,7 +6,7 @@ import re
 import sys
 
 # what package to install
-PACKAGE = 'isc-dhcp-server'
+PACKAGE = 'apache2'
 # creating string that will describe options
 usage = "How to use: %prog [options] HOST_IP USERNAME PASSWORD PORT\n If you want \
 to install on remote via ssh or\n %prog [options] \n if you want to install locally"
