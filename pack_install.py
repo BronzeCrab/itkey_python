@@ -30,8 +30,8 @@ if len(args) == 0:
     package_installed = subprocess.check_output("apt-cache policy " + PACKAGE, stderr=subprocess.STDOUT, shell=True)
     if "Installed: (none)" in package_installed:
         try:
-            # If i use something like this subprocess.check_output(["sudo", "apt-get", "install", "-y", PACKAGE]) it doesn't work,
-            # it frezeeses don't know why, so i used this construction:
+            # If i use something like this subprocess.check_output(["sudo", "apt-get", "install", "-y", PACKAGE])
+            # it doesn't work, it frezeeses don't know why, so i used this construction:
             subprocess.check_output("sudo apt-get install -y " + PACKAGE, shell=True)
             logging.info('Sucessfully installed')
             sys.exit()
@@ -47,7 +47,7 @@ if len(args) == 0:
 # then go on install on remote via ssh        
 elif len(args) not in (3,4):
     logging.error("incorrect number of arguments") 
-
+    sys.exit()
 # checking arguments
 # checking ip
 # checking each octet, splitting by "."
